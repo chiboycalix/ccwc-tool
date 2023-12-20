@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Hello World")
+	port := flag.String("port", "8080", "port to listen on")
+	flag.Parse()
+	fmt.Printf("port: %s\n", *port)
+	fmt.Println(flag.Arg(0), "nono")
+	fmt.Println(flag.NArg(), "flag.NArg()")
 }
